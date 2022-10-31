@@ -18,9 +18,12 @@ int main(int argc, char const *argv[])
                 bestRestaurant[0] = presentRestaurant[0];
                 bestRestaurant[1] = presentRestaurant[1];
             }
-            else if (presentRestaurant[1] == bestRestaurant[1] && presentRestaurant[0] < bestRestaurant[0])
+            else if (presentRestaurant[1] == bestRestaurant[1])
             {
-                bestRestaurant[0] = presentRestaurant[0];                
+                if (bestRestaurant[0] == 0 || presentRestaurant[0] < bestRestaurant[0])
+                {
+                    bestRestaurant[0] = presentRestaurant[0];
+                }       
             }
         }
         printf("Dia %d\n%d\n\n", counter, bestRestaurant[0]);

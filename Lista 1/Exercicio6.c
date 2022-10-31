@@ -9,6 +9,7 @@ int main(int argc, char const *argv[])
     int difference = 0;
     for (scanf("%d", &lines); lines != 0; scanf("%d", &lines))
     {
+        difference = 0;
         printf("Teste %d\n", counter);
         for (int i = 0; i < lines; i++)
         {

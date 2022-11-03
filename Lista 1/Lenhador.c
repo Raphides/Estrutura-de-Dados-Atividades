@@ -6,7 +6,7 @@
 int treeHeight, branches;
 bool isDamaged = false;
 char lumberDirection;
-char commands[50];
+char commands[2001];
 char screen[7][11];
 int layersDestroyed = 0;
 

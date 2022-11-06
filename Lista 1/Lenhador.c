@@ -6,7 +6,7 @@
 int treeHeight, branches;
 bool isDamaged = false;
 char lumberDirection;
-char commands[2001];
+char commands[4000];
 char screen[7][11];
 int layersDestroyed = 0;
 
@@ -29,7 +29,7 @@ void drawtree(void);
 void printScreen(void);
 void changeSides(void);
 void endGame(void);
-void notifyInvalidCommand(void;);
+void notifyInvalidCommand(void);
 void drawBranches(int branchRegister[]);
 bool checkDangerousZones(char side, int line);
 void clearBranchesArea(void);

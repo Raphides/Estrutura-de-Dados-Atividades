@@ -10,12 +10,12 @@ char *getTime(int index);
 void setTime(int index, char nome[], int pontos);
 int empates();
 
-struct placarTimes
+struct times
 {
     char nome[200][10];
     int pontos[200];
 };
-struct placarTimes placar;
+struct times placar;
 
 
 void setTime(int index, char nome[], int pontos){
@@ -33,11 +33,9 @@ int main(int argc, char const *argv[])
 }
 
 void leitura(void){
+    //
     scanf("%d", &n_times);
-    if (n_times == 0)
-    {
-        exit(EXIT_SUCCESS);
-    }
+    // restart struct
     for (int k = 0; k < 200; k++)
     {
         for (int l = 0; l < 10; l++)
@@ -47,6 +45,10 @@ void leitura(void){
         placar.pontos[k] = 0;
     }    
     scanf("%d", &jogos);
+    if (n_times == 0 & jogos == 0)
+    {
+        exit(EXIT_SUCCESS);
+    }
     for (int i = 0; i < n_times; i++)
     {
         scanf("%s %d", placar.nome[i], &placar.pontos[i]);

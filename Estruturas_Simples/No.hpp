@@ -11,7 +11,7 @@ public:
     Node(type value);
     Node(void);
     void nullify_node(void);
-    void delete_node(void)
+    void delete_node(void);
     type getValue(void);
     void setValue(type new_value);
     Node* getNextNode(void);

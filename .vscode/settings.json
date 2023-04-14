@@ -2,7 +2,10 @@
     "files.associations": {
         "stdlib.h": "c",
         "stdio.h": "c",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "exception": "cpp",
+        "stdexcept": "cpp",
+        "optional": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }

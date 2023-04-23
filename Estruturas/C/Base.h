@@ -18,7 +18,7 @@ typedef struct
     int length;
     node_t *first_node;
     node_t *last_node;
-} linked_t;
+} linked_data_t;
 
 
 #endif

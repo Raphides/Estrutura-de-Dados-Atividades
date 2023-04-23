@@ -1,6 +1,7 @@
-# include <stdlib.h>
-# include <stdio.h>
-# include "queue.h"
+# include <cstdlib>
+# include <cstdio>
+# include <gtest/gtest.h>
+# include "../C/queue.h"
 // # include "queue.c"
 
 int main(int argc, char const *argv[])
@@ -14,10 +15,11 @@ int main(int argc, char const *argv[])
     queueElement(fila, 77);
     unqueueElement(fila);
     element_t* num = (element_t*) malloc(sizeof(element_t));
-    printf("Resultado: %d\n", getElement(fila, 4, num));
-    printf("Tamanho: %d\nIndex: %d\nElemento: %d\n", fila->length, 4, *num);
+    printf("Resultado: %d\n", getElement(fila, 3, num));
+    printf("Tamanho: %d\nIndex: %d\nElemento: %d\n", fila->length, 3, *num);
     free(num);
     deallocNodes(fila);
     free(fila);
     printf("Success\n");
+    return RUN_ALL_TESTS();
 }

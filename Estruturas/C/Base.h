@@ -21,4 +21,6 @@ typedef struct
 } linked_data_t;
 
 
+int initList(linked_data_t* data_list);
+
 #endif

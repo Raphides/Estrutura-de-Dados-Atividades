@@ -16,6 +16,7 @@ int initQueue(linked_data_t* queue)
     queue->last_node = queue->first_node;
     queue->last_node->next_node = NULL;
     queue->last_node->past_node = NULL;
+    return 1;
 }
 
 int queueElement(linked_data_t* queue, element_t value)

@@ -1,0 +1,7 @@
+1. Escreva uma função recursiva que calcule a soma dos dígitos de um número inteiro.
+2. Escreva uma função recursiva que calcule o produto de dois números inteiros positivos a e b, usando apenas somas e subtrações.
+3. Escreva uma função recursiva que calcule o valor de x elevado à potência n, onde x e n são números inteiros positivos.
+4. Escreva uma função recursiva que determine se uma string é um palíndromo (ou seja, se pode ser lida igualmente de trás para frente).
+5. Escreva uma função recursiva que calcule o máximo divisor comum (MDC) de dois números inteiros.
+6. Escreva uma função recursiva que calcule o maior elemento em uma vetor de inteiros.
+7. Escreva uma função recursiva que encontre a posição de um elemento v em um vetor V.

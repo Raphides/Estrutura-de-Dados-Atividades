@@ -1,7 +1,10 @@
 # Estrutura-de-Dados-Atividades
-Repositório pessoal que contém a resolução das diferentes listas disponíveis na disciplina
 
-Relembrando:
-- Como compilar um código C?
-vá na pasta exata em que o arquivo está e digite "make <arquivo>" ou "cc <arquivo.c> -o <nome_do_exe>"
-Para rodar o objeto criado: "./<arquivo>".
+## Sobre
+
+Repositório pessoal que contém a resolução das diferentes listas disponíveis na disciplina de Estrutura de Dados, ministrada na UnB. Além disso, possuia algumas estruturas e lgorítmos feitos no contexto da aula.
+
+Aqui há resolução de listas referentes aos professores Bruno Ribas e Nilton, quando davam aulas em 2022.2 e 2023.1 respectivamente.
+
+## Contribuição
+Caso queira contribuir, abra uma Pull Request descrevendo brevemente as alterações que você propõe. Será feita uma análise e em breve algum responsável julgará a mesclagem.

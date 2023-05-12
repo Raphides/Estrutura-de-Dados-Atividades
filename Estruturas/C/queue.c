@@ -6,7 +6,7 @@
 node_t* __getNodeAsc(node_t* first_node, int target, int position);
 node_t* __getNodeDesc(node_t* last_node, int target, int position);
 
-int initQueue(linked_data_t* queue)
+int lqInit(linked_queue_t* queue)
 {
     queue->length = 0;
     queue->first_node = (node_t*) malloc(sizeof(node_t));
@@ -19,7 +19,7 @@ int initQueue(linked_data_t* queue)
     return 1;
 }
 
-int queueElement(linked_data_t* queue, element_t value)
+int lqAppend(linked_queue_t* queue, element_t value)
 {
     if (queue->length == 0)
     {
@@ -44,7 +44,7 @@ int queueElement(linked_data_t* queue, element_t value)
     return 1;
 }
 
-int unqueueElement(linked_data_t* queue)
+int lqPop(linked_queue_t* queue)
 {
     if (queue->length == 0)
     {
@@ -65,7 +65,7 @@ int unqueueElement(linked_data_t* queue)
 }
 
 
-int getElement(linked_data_t* queue, int index, element_t* result)
+int lqGet(linked_queue_t* queue, int index, element_t* result)
 {
     if (queue->length == 0 || index < 0 || index >= queue->length)
     {
@@ -116,7 +116,7 @@ node_t* __getNodeDesc(node_t* last_node, int target, int position)
     }
 }
 
-int deallocNodes(linked_data_t* queue)
+int deallocNodes(linked_queue_t* queue)
 {
     node_t* actualNode = queue->first_node;
     for (int l = 0; l < queue->length; l++)

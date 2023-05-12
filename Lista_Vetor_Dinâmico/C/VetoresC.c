@@ -4,22 +4,6 @@
 
 typedef char elemento;
 
-int definirElemento(int tipo)
-{
-    switch (tipo)
-    {
-    case 1:
-        typedef char elemento; 
-        break;
-    case 2:
-        typedef int elemento; 
-        break;
-    default:
-        return false;
-        break;
-    }
-}
-
 // questão 1a
 
 int *CriaVetInt(int n_elementos)
@@ -185,29 +169,38 @@ int cmpVet(vetor_t* vetor1, vetor_t* vetor2)
 }
 
 
-int somaVet()
+int somaVet(int qtde, float *vetor, float* soma)
 {
-    typedef int 
-    int tam;
-    scanf("%d", );
+    if (qtde < 1)
+        return 0;
+    for (int p = 0; p < qtde; p++)
+    {
+        *soma += (1 / vetor[p]);
+    }
+    return 1;
 }
 
 int main(int argc, char const *argv[])
 {
-    vetor_t* teste = (vetor_t*) malloc(sizeof(vetor_t));
-    vetor_t* teste2 = (vetor_t*) malloc(sizeof(vetor_t));
-    inicVet(teste, 26);
-    inicVet(teste2, 26);
-    for (int alp = 0; alp < 20; alp++)
-    {
-        adicVet(teste, (char) 97 + alp);
-        adicVet(teste2, (char) 97 + alp);
-    }
-    printf("%d\n", cmpVet(teste, teste2));
-    adicVetOrd(teste, 'a');
-    excluirVetOrd(teste, 'c');
-    printVet(teste);
-    desalocVet(teste);
-    free(teste);
+    //vetor_t* teste = (vetor_t*) malloc(sizeof(vetor_t));
+    //vetor_t* teste2 = (vetor_t*) malloc(sizeof(vetor_t));
+    //inicVet(teste, 26);
+    //inicVet(teste2, 26);
+    //for (int alp = 0; alp < 20; alp++)
+    //{
+    //    adicVet(teste, (char) 97 + alp);
+    //    adicVet(teste2, (char) 97 + alp);
+    //}
+    //printf("%d\n", cmpVet(teste, teste2));
+    //adicVetOrd(teste, 'a');
+    //excluirVetOrd(teste, 'c');
+    //printVet(teste);
+    //desalocVet(teste);
+    //free(teste);
+    float teste[5] = {1,2,3,4,5};
+    float *soma = (float*) calloc(1,sizeof(float));
+    somaVet(5, teste, soma);
+    printf("%f\n", *soma);
+    free(soma);
     return 0;
 }

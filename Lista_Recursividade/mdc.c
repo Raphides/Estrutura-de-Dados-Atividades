@@ -49,6 +49,13 @@ int mmc(int numero1, int numero2)
 
 int main(int argc, char const *argv[])
 {
-    printf("%d\n", mmc(12, 60));
-    return 0;
+    // checando a questão da prova de Matemática Discreta 2.
+    for (int i = 1; i < 31; i +=2)
+    {
+        for (int j = 2; j < 31; j+=2)
+        {
+            if (mmc(j,i) == 60 & mdc(j,i) == 3)
+                printf("%d / %d\n", i, j);
+        }
+    }
 }

@@ -3,22 +3,22 @@
 typedef linked_data_t linked_list_t;
 
 enum searchMethods{
-    SIMPLE, BINARY
+    SIMPLE_SEARCH, BINARY_SEARCH
 };
 
 enum sortMethods{
-    BUBBLE, SELECTION, INSERT, MERGE, QUICK
+    BUBBLE_SORT, SELECTION_SORT, INSERT_SORT, MERGE_SORT, QUICK_SORT
 };
 
-int llget(linked_list_t* list, int index, element_t* result);
+void llInit(linked_list_t* list);
 
-int llInit(linked_list_t* list);
+int llGet(linked_list_t *list, int index, node_t* result);
 
 int llInsert(linked_list_t* list, int index, element_t element);
 
-int llExtend(linked_list_t* list);
+int llExtend(linked_list_t* list, linked_list_t* extension);
 
-int llRemove(linked_list_t* list);
+int llRemove(linked_list_t* list, int index);
 
 int llSort(linked_list_t* list, int sortMethod);
 

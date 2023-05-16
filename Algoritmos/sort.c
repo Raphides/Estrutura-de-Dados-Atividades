@@ -2,6 +2,14 @@
 # include <stdio.h>
 # include <stdlib.h>
 
+int is_viability(void *vector, size_t n_items, size_t bytes_per_item, int (*comparator)(void *item1, void *item2))
+{
+    if (vector == NULL || n_items <= 1 || bytes_per_item == 0 || comparator == NULL)
+        return 0;
+    else
+        return 1;
+}
+
 void __swap_void(void *item1, void *item2, size_t bits_per_item)
 {
     char *i1 = (char *) item1;
@@ -33,12 +41,38 @@ void __bubblesort_aux_rec(void *vector, size_t n_items, size_t bytes_per_item, i
         __bubblesort_aux_rec(vector, n_items, bytes_per_item, comparator);   
 }
 
-int bubblesort(void *vector, size_t n_items, size_t bytes_per_item, int (*comparator)(void *item1, void *item2))
+void __selectionsort_aux_rec(void *vector, size_t n_items, size_t bytes_per_item, int (*comparator)(void *item1, void *item2))
 {
-    if (vector == NULL || n_items == 0 || bytes_per_item == 0 || comparator == NULL)
-        return 0;
-    else
-        __bubblesort_aux_rec(vector, n_items, bytes_per_item, comparator);
-        return 1;    
+    void *lowest = vector;
+    void *actual;
+    for (int r = 1; r < n_items; r++)
+    {
+        actual = vector + (r *bytes_per_item);
+        if ((*comparator)(lowest, actual) > 0)
+            lowest = actual;
+    }
+    if (lowest != vector)
+        __swap_void(lowest, vector, bytes_per_item);
+    if (n_items > 2)
+        __selectionsort_aux_rec(vector + bytes_per_item, n_items - 1, bytes_per_item, comparator);
 }
 
+int bubblesort(void *vector, size_t n_items, size_t bytes_per_item, int (*comparator)(void *item1, void *item2))
+{
+    if (is_viability(vector, n_items, bytes_per_item, comparator))
+    {
+        __bubblesort_aux_rec(vector, n_items, bytes_per_item, comparator);
+        return 1;
+    }
+    return 0;    
+}
+
+int selectionsort(void *vector, size_t n_items, size_t bytes_per_item, int (*comparator)(void *item1, void *item2))
+{
+    if (is_viability(vector, n_items, bytes_per_item, comparator))
+    {
+        __selectionsort_aux_rec(vector, n_items, bytes_per_item, comparator);
+        return 1;
+    }
+    return 0;    
+}

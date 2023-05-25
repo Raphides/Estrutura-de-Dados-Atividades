@@ -28,10 +28,25 @@ Algorítmos clássicos e comuns de ordenação de lista de dados. Cada algorítm
 
 ## Bubble Sort
 
+Algorítmos de ordenação clássico que refencia "bolhas" devido ao seu comportamento de fazer o maior elemento submergir. Seu funcionamento é liderado por uma iteração através de todos os elementos do vetor. Cada elemento será comparado com o elemento posterior, trocando os dois de lugares caso o posterior seja menor. Esse laço atraveś de todo o vetor será repetido de novo e de novo até que nenhuma operação de troca seja feita em alguma das repetições, garantindo assim que o vetor foi ordenado com sucesso.
+
+### Característticas
+- Casos:
+    - Melhor caso: já ordenado.
+        - Complexidade: O(n), porque percorre-se o vetor 1 vez só para checar se o vetor foi ordenado. Como nenhuma troca terá sido feita, o algorítmo se encerrará.
+    - Pior/Médio Caso: aleatório/ ordem invertida.
+        - Complexidade: O(n²):
+- Pode ser feita do início-fim (padrão) ou fim-início.
+- Normalmente mantém a posição de elementos duplicados, tudo depende da condição implementada antes de chamar a função de *troca*. Implemente-a atentando-se aos operadores lógicos.
+- Vantagens: 
+    - Checha vetores já ordenados, previnindo algumas operações redundantes.
+- Desvantagens:
+    - Um vetor semi-ordenado com o primeiro elemento na última posição da iteração demorará O(n²) para ser ordenado com o Bubble.
+    - Ainda possui operações redundantes. 
+
 ## Bubble Sort+
 
-Melhoria do método Bubble Sort. Ele não muda a sua complexidade (taxa de crescimento), mas muda consideravelmente o seu tempo de execução.
-
+Melhoria do método Bubble Sort. Ele não muda a sua complexidade (taxa de crescimento) clássico de O(n²), mas elimina muitas operações redundantes.
 
 
 ## Selection Sort

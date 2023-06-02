@@ -1,19 +1,24 @@
-# ifndef CSV_reader
-# define CSV_reader
+# ifndef CSV_READER
+# define CSV_READER
 # include <stdio.h>
 
 typedef struct 
 {
+    // basic info
+
     char separator;
     int columns;
-    char **head;
     int lines;
-    FILE **pkeys;
     char * path;
-    FILE* SRC;
+
+    // public addresses
+
+    char **head;
+    FILE **pkeys;
 } CSV;
 
 CSV* to_csv(char* csv_path, char separator, int pkey);
 
+int unnassing_csv(CSV* csv);
 
 # endif

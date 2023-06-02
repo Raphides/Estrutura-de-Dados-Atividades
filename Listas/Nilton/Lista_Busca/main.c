@@ -1,9 +1,16 @@
-# include "csv_reader.h"
 # include <stdio.h>
+# include "csv_reader.h"
 
 int main(int argc, char const *argv[])
 {
-    CSV* file = to_csv("Lista_Municipios_com_IBGE_Brasil_Versao_CSV.csv", ';', 1);
-    printf("%c\n", fgetc(file->pkeys[0]));
+    CSV* mycsv = to_csv("./teste.csv", ',', 0);
+    if (mycsv == NULL)
+        printf("putz\n");
+    else
+        printf("Colunas: %d\nLinhas: %d\n", mycsv->columns, mycsv->lines);
+        char linha[50];
+        FILE * csv_adress = mycsv->pkeys[0];
+        printf("Raphael: %c%c%c\n", fgetc(csv_adress), fgetc(csv_adress), fgetc(csv_adress));
+    unnassing_csv(mycsv);
     return 0;
 }

@@ -14,7 +14,7 @@ typedef struct
     // public addresses
 
     char **head;
-    FILE **pkeys;
+    char **pkeys;
 } CSV;
 
 CSV* to_csv(char* csv_path, char separator, int pkey);

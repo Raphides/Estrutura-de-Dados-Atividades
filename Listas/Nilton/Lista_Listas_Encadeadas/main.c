@@ -28,7 +28,7 @@ TNoI *CriaListaIndustria()
     TNoI *plista, *pnovono;
 //Montando lista das Industrias:
     
-    parq = fopen("./Lista_lista_enc/Industria.txt", "r");
+    parq = fopen("Listas/Nilton/Lista_Listas_Encadeadas/Industria.txt", "r");
     if(parq==NULL)
         return NULL;
     
@@ -67,9 +67,9 @@ TNoC *CriaListaComercio()
     TCadastro pregaux;
     int is_first = 1;
     TNoC *plista, *pnovono, *pfim;
-//Montando lista das Industrias:
+//Montando lista de Comércio:
     
-    parq = fopen("./Lista_lista_enc/Comercio.txt", "r");
+    parq = fopen("Listas/Nilton/Lista_Listas_Encadeadas/Comercio.txt", "r");
     if(parq==NULL)
         return NULL;
     
@@ -92,15 +92,12 @@ TNoC *CriaListaComercio()
     plista->Ant = pfim;
     pfim->Prox = plista;
     return plista;
-    
-    
-//######################
 }
 
 //Listar Conteúdo da lista Comercio:
 void ImprimeComercio(TNoC *LCom){
-    TNoI *pinicio = LCom;
-    TNoI *plista = LCom;
+    TNoC *pinicio = LCom;
+    TNoC *plista = LCom;
     printf("                     LISTA DE COMÉRCIO\n");
     printf("CNPJ            Razao Social                Cidade      Telefone\n");
     do
@@ -116,11 +113,37 @@ void ImprimeComercio(TNoC *LCom){
 //Deve retornar 1 caso tenha sucesso. 0 caso contrário
 int CriaListaServico(TDescritorS *pLSer)
 {
-    //Complete o código...
+    FILE* parq;
+    TCadastro pregaux;
+    int is_first = 1;
+    TNoC *plista, *pnovono, *pfim;
+//Montando lista de Comércio:
     
+    parq = fopen("Listas/Nilton/Lista_Listas_Encadeadas/Servico.txt", "r");
+    if(parq==NULL)
+        return NULL;
     
-    
-    //######################
+    plista = NULL;
+    pLSer->Tamanho = 0;
+    while(fscanf(parq,"%s %s %s %s", pregaux.CNPJ, pregaux.RazaoSocial, pregaux.Cidade, pregaux.Fone)>0) {
+        pnovono = (TNoS *)malloc(sizeof(TNoC));
+        pnovono->Dados = (TCadastro *)malloc(sizeof(TCadastro));
+        strcpy(pnovono->Dados->CNPJ, pregaux.CNPJ);
+        strcpy(pnovono->Dados->RazaoSocial, pregaux.RazaoSocial);
+        strcpy(pnovono->Dados->Cidade, pregaux.Cidade);
+        strcpy(pnovono->Dados->Fone, pregaux.Fone);
+        if (plista != NULL)
+            plista->Ant = pnovono;
+        if (is_first)
+            pLSer->Inicio = pnovono;
+            pfim = pnovono;
+            is_first = 0;
+        pnovono->Prox = plista;
+        plista = pnovono;
+    }
+    plista->Ant = pfim;
+    pfim->Prox = plista;
+    return plista;
 }
 
 //Listar Conteúdo da lista Servico:
@@ -170,17 +193,6 @@ void ImprimeUnificadaInvertida(TDescritorU *pListaUnica){
         plista = plista->Ant;
     }
 }
-
-
-
-//Listar Conteúdo da lista Unificada:
-void ImprimeUnificada(TDescritorU *pdescritor){
-    //Complete o código...
-    
-    
-    //######################
-}
- 
  
  //Desalocar todas as listas:
 void DesalocaListas(TNoI *pInd, TNoC *pCom, TDescritorS *pServ, TDescritorU *pUnica)
@@ -268,14 +280,12 @@ int main() {
                     printf("Erro na criacao da Lista de Industria!\n");
                     break;
                 }
-/* RETIRE O COMENTÁRIO QUANDO CODIFICAR A FUNÇÃO ABAIXO:
                 if((LComercio = CriaListaComercio()))
                     printf("Lista de Comercio montada!\n");
                 else{
                     printf("Erro na criacao da Lista de Comercio!\n");
                     break;
                 }
-*/
                 
 /* RETIRE O COMENTÁRIO QUANDO CODIFICAR A FUNÇÃO ABAIXO:
                 if(CriaListaServico(&LServico))
@@ -297,12 +307,9 @@ int main() {
                 ImprimeIndustria(LIndustria);
                 break;
                 
-/* RETIRE O COMENTÁRIO QUANDO CODIFICAR A FUNÇÃO ABAIXO:
             case 4:
                 ImprimeComercio(LComercio);
                 break;
-
-*/
                 
 /* RETIRE O COMENTÁRIO QUANDO CODIFICAR A FUNÇÃO ABAIXO:
             case 5:
@@ -318,11 +325,9 @@ int main() {
                 ImprimeUnificadaInvertida(&LUnica);
                 break;
                 
-/* RETIRE O COMENTÁRIO QUANDO CODIFICAR A FUNÇÃO ABAIXO:
             case 0:
                 DesalocaListas(LIndustria, LComercio, &LServico, &LUnica);
                 break;
-*/
                 
             default:
                 printf("Digite uma opcao valida\n");

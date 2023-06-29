@@ -1,12 +1,22 @@
-# Determinação do Big O
+# Complexidade Assintótica (Big O)
+
+## Definição
+
+
+## Notações
+- O()
+- 
+
+
+## Determinação do Big O
 
 O Big O de um algorítmo é determinado pela soma do complexidade dos seus termos internos. Logo é preciso ter acesso ao código fonte do algorítmo para determinar sua complexidade.
 
-## Termos de Complexidade Constante
+### Termos de Complexidade Constante
 
 Operações que não são influenciadas por uma variável mutável. Exemplo: Sem saber o tamanho do vetor, ele torna-se mutável.
 
-### O(1)
+#### O(1)
 
 Cada operação de declaração, aritmética e assinalável é representado por um O(1).
 
@@ -23,9 +33,11 @@ int exemplo(int a)
 }
 ```
 
-### Laços Constantes
+**Atenção: em situações em que só repetições são analisadas, usa-se somente O(1) para uma sequência constante.**
 
-Laços com um número de repetições constantes. Sua complexidade será a soma do O() dos termos vezes o número de repetições constantes.
+#### Laços Constantes
+
+Laços com um número de repetições constantes. Sua complexidade será a soma do O(c) dos termos vezes o número de repetições constantes.
 
 ```c
 // O(c)
@@ -42,15 +54,15 @@ int vezes10(int a)
 }
 ```
 
-### Condicionais
+#### Condicionais
 
 Tendo dois ou mais caminhos distintos no código, devemos calcular o Big O de todos os caminhos e traduzí-los em melhor/pior/médio caso.
 
-## Termos de Complexidade Mutável
+### Termos de Complexidade Mutável
 
 Diferente do Big O constante, quando houver algo dependendo de uma variável mutável (representada por *n*), ignoraremos todos os outros termos de ordem menor. Por exemplo, ao ter um termo O(n²), outro O(n) e outro O(15), a complexidade do algorítmo será O(n²). Normalmente também excluímos o coeficiente do n de maior ordem, visto que raramente importará para o usuário.
 
-### Laços de tamanho mutável
+#### Laços de tamanho mutável
 
 ```c
 // O(c)
@@ -67,7 +79,7 @@ int pot2(int a) //"a" deve ser positivo
 }
 ```
 
-### Laços consecutivos
+#### Laços consecutivos
 
 ```c
 // O(c)
@@ -90,7 +102,7 @@ int soma_de_pot2(int a, int b) //"a" deve ser positivo
 }
 ```
 
-### Laços internos
+#### Laços internos
 ```c
 // O(c)
 int exemplo(int n) //"a" deve ser positivo

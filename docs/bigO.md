@@ -2,11 +2,12 @@
 
 ## Definição
 
+A complexidade assintótica aborda a taxa de crescimento da execução de um código na memória. A complexidade pode ser a partir do espaço ou tempo de um algorítmo.
 
 ## Notações
-- O()
-- 
-
+- O(f(x)) - Limite Superior: a taxa de crescimento da função interna sempre será **maior ou igual*** a função analisada.
+- &Omega;(f(x)) - Limite Inferior: a taxa de crescimento da função interna sempre será **menor ou igual** a função analisada.
+- &theta;(f(x)) - Exato: a taxa de crescimento da função interna sempre será **igual** a função analisada.
 
 ## Determinação do Big O
 
